@@ -58,3 +58,41 @@ function primeFactors(bigNumber: number): number[] {
 // PROBLEM 3 SOLUTION
 // take last value of array
 // console.log(primeFactors(600851475143));
+
+function palindromes(lowerBound: number, upperBound: number): number[] {
+    const palindromes: number[] = [];
+    for (let i = lowerBound; i < upperBound; i++) {
+        for (let j = lowerBound; j < upperBound; j++) {
+            const test = i*j;
+            String(test) === String(test).split('').reverse().join('') && palindromes.push(test);
+        }
+    }
+    return palindromes;
+}
+
+// PROBLEM 4 SOLUTION
+// const allPalindromes = palindromes(100, 999).sort((a, b) => a - b);
+// console.log(allPalindromes[allPalindromes.length - 1]);
+
+function range(min: number, max: number): number[] {
+    const arr = [];
+    for (let i = min; i <= max; i++) {
+        arr.push(i);
+    }
+    return arr;
+}
+
+function gcd(a: number, b: number): number {
+    if (!b) {
+        return a;
+      }
+    
+    return gcd(b, a % b);
+}
+
+function lcm(a: number, b: number): number {
+    return (a * b) / gcd(a, b);   
+}
+
+// PROBLEM 5 SOLUTION
+// console.log(range(1,20).reduce(lcm, 1));

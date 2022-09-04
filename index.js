@@ -44,4 +44,37 @@ function primeFactors(bigNumber) {
     }
     return Array.from(divisors.values());
 }
-console.log(primeFactors(600851475143));
+// PROBLEM 3 SOLUTION
+// take last value of array
+// console.log(primeFactors(600851475143));
+function palindromes(lowerBound, upperBound) {
+    var palindromes = [];
+    for (var i = lowerBound; i < upperBound; i++) {
+        for (var j = lowerBound; j < upperBound; j++) {
+            var test = i * j;
+            String(test) === String(test).split('').reverse().join('') && palindromes.push(test);
+        }
+    }
+    return palindromes;
+}
+// PROBLEM 4 SOLUTION
+// const allPalindromes = palindromes(100, 999).sort((a, b) => a - b);
+// console.log(allPalindromes[allPalindromes.length - 1]);
+function range(min, max) {
+    var arr = [];
+    for (var i = min; i <= max; i++) {
+        arr.push(i);
+    }
+    return arr;
+}
+function gcd(a, b) {
+    if (!b) {
+        return a;
+    }
+    return gcd(b, a % b);
+}
+function lcm(a, b) {
+    return (a * b) / gcd(a, b);
+}
+// PROBLEM 5 SOLUTION
+// console.log(range(1,20).reduce(lcm, 1));
